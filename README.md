@@ -4,7 +4,7 @@
 <h3>Domain of interest</h3>
 
 **_Why are you interested in this field/domain?_**
- Mass Incarceration is a huge problem in the United States. The rate of mass incarceration is historically very high and we want to use data to show how structural racism has a huge impact in the prison system. 
+ Mass Incarceration is a huge problem in the United States. The rate of mass incarceration is historically very high and we want to use data to show how structural racism has a huge impact in the prison system.
 
  **_What other examples of data driven projects have you found related to this domain (share at least 3)?_**
  <ol>
@@ -15,8 +15,8 @@
 
 **_What data-driven questions do you hope to answer about this domain (share at least 3)?_**
 
- A couple of data driven questions that we came up with as a group are: 
-<ol> 
+ A couple of data driven questions that we came up with as a group are:
+<ol>
 
 <li> Does skin color affect the rate of imprisonment? Colorism?</li>
 
@@ -32,9 +32,10 @@
 **_Where did you download the data (e.g., a web URL)?_**
 
 We found most of our data from websites such as:
-1. [Brennan Center For Justice](https://www.brennancenter.org/our-work/research-reports/conviction-imprisonment-and-lost-earnings-how-involvement-criminal?ms=gad_prison%20statistics_465051828443_8626214133_111612472200&gclid=CjwKCAiAu8SABhAxEiwAsodSZMjLaiiFN08EqEb-NUtwvriX_fgG6QObNL9cyDPxCBZdyP9094egiBoClJQQAvD_BwE)
-2. [NAACP: National Association for the Advancement of Colored People](https://www.naacp.org/criminal-justice-fact-sheet/) 
-3. [The Sentencing Project](https://www.sentencingproject.org/issues/incarceration/)
+
+- [Brennan Center For Justice](https://www.brennancenter.org/our-work/research-reports/conviction-imprisonment-and-lost-earnings-how-involvement-criminal?ms=gad_prison%20statistics_465051828443_8626214133_111612472200&gclid=CjwKCAiAu8SABhAxEiwAsodSZMjLaiiFN08EqEb-NUtwvriX_fgG6QObNL9cyDPxCBZdyP9094egiBoClJQQAvD_BwE) </li>
+- [NAACP: National Association for the Advancement of Colored People](https://www.naacp.org/criminal-justice-fact-sheet/) 
+- [The Sentencing Project](https://www.sentencingproject.org/issues/incarceration/)
 
 
 
@@ -56,13 +57,13 @@ We also believe that there are also many columns because there are multiple data
 **What questions (from above) can be answered using the data in this dataset?**
 
 
-- What is the proportion of incarceration by different races? 
+- What is the proportion of incarceration by different races?
 
-- Do certain states have higher incarceration rates than other states? Is it significant? 
+- Do certain states have higher incarceration rates than other states? Is it significant?
 
-- How has slavery and Jim Crow played in the making of policies for mass incarcerations? 
-- How are poor communities impacted? 
-- Has the economy been affected in any way? 
-- What role does the education system play in with mass incarceration? 
+- How has slavery and Jim Crow played in the making of policies for mass incarcerations?
+- How are poor communities impacted?
+- Has the economy been affected in any way?
+- What role does the education system play in with mass incarceration?
 
 <ol>
