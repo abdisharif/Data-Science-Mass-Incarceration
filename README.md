@@ -51,7 +51,7 @@ We found most of our data from websites such as:
 There are many rows because there are many datasets, we estimated there to be approx. (100,000+)
 
 **How many features (columns) are in the data?**
-We also believe that there are also many columns because there are multiple datasets, and we also estimated there to be approx. (100,000+)
+We also believe that there are also many columns because there are multiple datasets, and we also estimated there to be approx. (10+)
 
 **What questions (from above) can be answered using the data in this dataset?**
 
