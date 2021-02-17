@@ -54,5 +54,15 @@ theme(text=element_text(family="Tahoma"))
 
 
 plot1 + labs(title = "Mass Incarceration", x = "Total of Black People Arrested", y = "Years", caption = "By: Abdirahim M. ")
+# Plot3  ------------------------------------------------------------------
+
+
+
+
+
+
+
+# Map  ------------------------------------------------------------------
+
 
 
