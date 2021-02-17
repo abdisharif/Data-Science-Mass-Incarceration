@@ -2,12 +2,6 @@
 # Setup  ------------------------------------------------------------------
 library("dplyr")
 library("tidyverse")
-library("lintr")
-library("styler")
-library("stringr")
-library("expss")
-library("lubridate")
-library("plyr")
 
 # Load the data from "https://raw.githubusercontent.com/mschrier/https-classroom.github.com-a-XrLzm1Hu/main/Arrest_Information.csv"
 Arrest_Information <- read.csv("https://raw.githubusercontent.com/mschrier/https-classroom.github.com-a-XrLzm1Hu/main/Arrest_Information.csv")
@@ -36,8 +30,6 @@ total_jail_population <- Incarceration %>%
   filter(date ==max(date))%>%
   pull(cases)
 
-library("dplyr")
-library("tidyverse")
 
 # Plot1  ------------------------------------------------------------------
 
@@ -45,15 +37,16 @@ library("tidyverse")
 
 
 # Plot2  ------------------------------------------------------------------
-# Plot of Black Population Incarceration Trend 
+# Plot of Total Population Incarceration Trend ----------------------------
 plot1 <- ggplot() + 
-  geom_line(aes(y = X2013, x =  Black.or.African.American.1),
+  geom_line(aes(y = Total, x =  X2013),
             data = Arrest_Information) 
-scale_x_continuous(breaks=seq(2013,2019,2))
+scale_x_continuous(breaks=seq(2011,2021,2))
 theme(text=element_text(family="Tahoma"))
 
 
-plot1 + labs(title = "Mass Incarceration", x = "Total of Black People Arrested", y = "Years", caption = "By: Abdirahim M. ")
+plot1 + labs(title = "Mass Incarceration", x = "Years", y = "Total Number of Arrests:" , caption = "By: Abdirahim M. ")
+
 # Plot3  ------------------------------------------------------------------
 
 
