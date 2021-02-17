@@ -3,7 +3,47 @@ install.packages("dplyr")
 library(dplyr)
 
 ## Load Data
-Data <- read.csv("")
+Data <- read.csv("/Users/matthewschrier/Desktop/INFO_201/https-classroom.github.com-a-XrLzm1Hu/Crime_Race_Date_2014.csv")
+View(Data)
+
+
+
+
+# Data division by year
+Data_2013_all <- filter(Data, X2013=="2013")
+Data_2015_all <- filter(Data, X2013=="2015")
+Data_2017_all <- filter(Data, X2013=="2017")
+Data_2019_all <- filter(Data, X2013=="2019")
+
+# race_with_the_highest_crime_rate_in_2019
+race_with_the_highest_crime_rate_in_2019 <- select(Data_2019, White,Black.or.African.American,American.Indian.or.Alaska.Native,Asian,Native.Hawaiian.or.Other.Pacific.Islander)
+race_with_the_highest_crime_rate_in_2019 <- colnames(race_with_the_highest_crime_rate_in_2019)[max.col(race_with_the_highest_crime_rate_in_2019,ties.method="first")]
+race_with_the_highest_crime_rate_in_2019 <- race_with_the_highest_crime_rate_in_2019[1]
+
+# highest crime type for African Americans in 2013
+Data_2013 <- Data_2013_all[-c(1,29),]
+highest_crime_type_for_African_Americans_in_2013 <- as.vector(Data_2013[which.max(Data_2013$Black.or.African.American),1])
+highest_crime_type_for_African_Americans_in_2013
+
+#highest crime type for African Americans in 2019
+Data_2019 <- Data_2019_all[-c(1,29),]
+highest_crime_type_for_African_Americans_in_2019 <- as.vector(Data_2019[which.max(Data_2019$Black.or.African.American),1])
+highest_crime_type_for_African_Americans_in_2019 
+# average criminal total for 2013, 2015,2017, and 2019
+average_criminal_total <- mean(Data_2013_all$Total[1],Data_2015_all$Total[1],Data_2017_all$Total[1],Data_2019_all$Total[1])
+average_criminal_total
+
+# highest crime type for white in 2013
+highest_crime_type_for_white_in_2013 <- as.vector(Data_2013[which.max(Data_2013$White),1])
+highest_crime_type_for_white_in_2013 
+
+# highest crime type for white in 2019
+highest_crime_type_for_white_in_2019 <- as.vector(Data_2019[which.max(Data_2019$White),1])
+highest_crime_type_for_white_in_2019
+
+Table<- data.frame(race_with_the_highest_crime_rate_in_2019,highest_crime_type_for_African_Americans_in_2013,highest_crime_type_for_African_Americans_in_2019,average_criminal_total,highest_crime_type_for_white_in_2013,highest_crime_type_for_white_in_2019 )
+
+
 
 ## create five variables
 # race with the highest crime rate
@@ -11,18 +51,19 @@ race_with_the_highest_crime_rate <- colnames(Data[,c(3:7)])[max.col(Data[,c(3:7)
 race_with_the_highest_crime_rate[1]
 
 # highest crime type for white
-highest_crime_type_for_white <- as.vector(Data[which.max(Data$White[2:NROW(Data)])+1,1])
+highest_crime_type_for_white <- as.vector(Data[which.max(Data$White[1:NROW(Data)]),1])
 highest_crime_type_for_white
 
-# highest crime type for African Americans 
-highest_crime_type_for_black <- as.vector(Data[which.max(Data$Black.or.African.American[2:NROW(Data)])+1,1])
+# highest crime type for black
+highest_crime_type_for_black <- as.vector(Data[which.max(Data$Black.or.African.American[1:NROW(Data)]),1])
 highest_crime_type_for_black
 
 # highest crime total
-highest_crime_total <- max(Data$Total[2:NROW(Data)])
+highest_crime_total <- max(Data$Total[1:NROW(Data)])
 highest_crime_total 
 
-# total number of max crime type for African Americans 
-total_number_of_max_crime_type_for_blacks <- max(Data$Black.or.African.American[2:NROW(Data)])
+# total number of max crime type for blacks
+total_number_of_max_crime_type_for_blacks <- max(Data$Black.or.African.American[1:NROW(Data)])
 total_number_of_max_crime_type_for_blacks
 
+Summary <- list(race_with_the_highest_crime_rate[1],highest_crime_type_for_white,highest_crime_type_for_black,highest_crime_total,total_number_of_max_crime_type_for_blacks)
