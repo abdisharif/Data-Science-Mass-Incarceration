@@ -1,9 +1,10 @@
 ## Install Package
 install.packages("ggplot2")
 library(ggplot2)
+library(dplyr)
 ## Load Data
 Data <- read.csv("/Users/matthewschrier/Desktop/INFO_201/https-classroom.github.com-a-XrLzm1Hu/Arrest_Information.csv")
-
+View(Data)
 # Data division by year
 Data_2013_all <- filter(Data, X2013=="2013")
 Data_2015_all <- filter(Data, X2013=="2015")

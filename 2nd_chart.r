@@ -1,11 +1,19 @@
-# Plot of Black Population Incarceration Trend ----------------------------
-plot1 <- ggplot() + 
-  geom_line(aes(y = X2013, x =  Black.or.African.American.1),
-            data = Arrest_Information) 
-scale_x_continuous(breaks=seq(2013,2019,2))
-theme(text=element_text(family="Tahoma"))
+## Install Package
+install.packages("ggplot2")
+library(ggplot2)
+library(dplyr)
+## Load Data
+Data <- read.csv("/Users/matthewschrier/Desktop/INFO_201/https-classroom.github.com-a-XrLzm1Hu/Arrest_Information.csv")
+
+# Data division by year
+Data_2013_all <- filter(Data, X2013=="2013")
+Data_2015_all <- filter(Data, X2013=="2015")
+Data_2017_all <- filter(Data, X2013=="2017")
+Data_2019_all <- filter(Data, X2013=="2019")
 
 
-plot1 + labs(title = "Mass Incarceration", x = "Total of Black People Arrested", y = "Years", caption = "By: Abdirahim M. ")
-
+Plot_2019 <- Data_2019_all[-c(1),c(1,2)]
+ggplot(Plot_2019, aes(x=Crime...Total.Arrest, y=Total)) + geom_bar(stat="identity")+
+  ggtitle("Arrests in 2019")+ theme(plot.title = element_text(hjust = 0.5))+ theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
+  xlab("Crimes") + ylab("Total Arrest")
 
