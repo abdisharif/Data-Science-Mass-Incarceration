@@ -2,6 +2,7 @@
 library("dplyr")
 library("tidyverse")
 library("ggplot2")
+lint("analysis.R")
 
 Arrest_Information <- read.csv("https://raw.githubusercontent.com/mschrier/https-classroom.github.com-a-XrLzm1Hu/main/Arrest_Information.csv")
 view(Arrest_Information)
