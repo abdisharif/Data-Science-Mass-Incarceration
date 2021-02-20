@@ -6,7 +6,7 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-source("compile.r")
+source("analysis.r")
 library(knitr)
 library(kableExtra)
 lint("table.R")
