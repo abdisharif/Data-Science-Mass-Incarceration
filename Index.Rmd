@@ -80,4 +80,4 @@ boxplot(Arrest_Information$Black.or.African.American,
 
 ```
 
-- Description: The purpose of this third chart is to show the decrease in Black Arrests in the United States, and the reason we chose this value is to show that we might be moving in the right direction in terms of fighting mass incarceration.  
+- Description: The purpose of this third chart is to show the decrease in Black Arrests in the United States, and the reason we chose this value is to show that we might be moving in the right direction in terms of fighting mass incarceration.   
