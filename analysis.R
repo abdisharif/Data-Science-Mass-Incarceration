@@ -74,11 +74,12 @@ ggplot(Plot_2019, aes(x=ï..Crime...Total.Arrest, y=Total)) + geom_bar(stat="ide
 
 # 3rd Chart ---------------------------------------------------------------------
 
-Asian_Population_comparison <- c(Arrest_Information$Asian[1],Arrest_Information$Asian[1],Arrest_Information$Asian[1],Arrest_Information$Asian[1])
-Pacific_Islander_Population_comparison <- c(Arrest_Information$Native.Hawaiian.or.Other.Pacific.Islander[1],Arrest_Information$Native.Hawaiian.or.Other.Pacific.Islander[1],Arrest_Information$Native.Hawaiian.or.Other.Pacific.Islander[1],Arrest_Information$Native.Hawaiian.or.Other.Pacific.Islander[1])
-                   
-plot(Asian_Population_comparison, type="o", col="blue", ylim=c(100, 1000))
-
-lines(Pacific_Islander_Population_comparison, type="o", pch=22, lty=2, col="red")
-
-title(main="Comparison Graph", col.main="red", font.main=4)
+boxplot(Arrest_Information$Black.or.African.American,
+        main = "Decrease in Black Arrests",
+        xlab = "Black Arrests",
+        ylab = "Total",
+        col = "orange",
+        border = "brown",
+        horizontal = TRUE,
+        notch = TRUE
+)
