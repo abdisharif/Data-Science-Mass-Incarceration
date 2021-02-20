@@ -1,6 +1,7 @@
 ## Install Package
 install.packages("dplyr")
 library(dplyr)
+lint("summary.R")
 
 ## Load Data
 Data <- read.csv("https://raw.githubusercontent.com/mschrier/https-classroom.github.com-a-XrLzm1Hu/main/Arrest_Information.csv")
