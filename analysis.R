@@ -1,100 +1,84 @@
-#Mass Incarceration Project 
 # Setup  ------------------------------------------------------------------
 library("dplyr")
 library("tidyverse")
-library(ggplot2)
+library("ggplot2")
 
-# Load the data from "https://raw.githubusercontent.com/mschrier/https-classroom.github.com-a-XrLzm1Hu/main/Arrest_Information.csv"
 Arrest_Information <- read.csv("https://raw.githubusercontent.com/mschrier/https-classroom.github.com-a-XrLzm1Hu/main/Arrest_Information.csv")
 view(Arrest_Information)
 
-dim(Arrest_Information)
-unique(Arrest_Information$X2013)
-length(unique(Arrest_Information$Black.or.African.American.1))
-length(unique(Arrest_Information$White))
+# summary -----------------------------------------------------------
+Data_2013_all <- filter(Arrest_Information, X2013=="2013")
+Data_2015_all <- filter(Arrest_Information, X2013=="2015")
+Data_2017_all <- filter(Arrest_Information, X2013=="2017")
+Data_2019_all <- filter(Arrest_Information, X2013=="2019")
+summary(Data_2013_all)
+
+# race_with_the_highest_crime_rate_in_2019
+race_with_the_highest_crime_rate_in_2019 <- select(Data_2019_all, White,Black.or.African.American,American.Indian.or.Alaska.Native,Asian,Native.Hawaiian.or.Other.Pacific.Islander)
+race_with_the_highest_crime_rate_in_2019 <- colnames(race_with_the_highest_crime_rate_in_2019)[max.col(race_with_the_highest_crime_rate_in_2019,ties.method="first")]
+race_with_the_highest_crime_rate_in_2019 <- race_with_the_highest_crime_rate_in_2019[1]
+
+# highest crime type for African Americans in 2013
+Data_2013 <- Data_2013_all[-c(1,29),]
+highest_crime_type_for_African_Americans_in_2013 <- as.vector(Data_2013[which.max(Data_2013$Black.or.African.American),1])
 
 
+#highest crime type for African Americans in 2019
+Data_2019 <- Data_2019_all[-c(1,29),]
+highest_crime_type_for_African_Americans_in_2019 <- as.vector(Data_2019[which.max(Data_2019$Black.or.African.American),1])
 
-# Questions/Variables -------------------------------
+# average criminal total for 2013, 2015,2017, and 2019
+average_criminal_total <- mean(Data_2013_all$Total[1],Data_2015_all$Total[1],Data_2017_all$Total[1],Data_2019_all$Total[1])
 
-# into a variable called `incarceration`
-Incarceration <- read.csv("https://gist.github.com/curran/8838736cfa6f3f960e2c#file-data-csv")
-View(Incarceration)
+# highest crime type for white in 2013
+highest_crime_type_for_white_in_2013 <- as.vector(Data_2013[which.max(Data_2013$White),1])
 
-#what county has the highest incarceration rate?
-total_deaths <- national %>%
-  filter(date ==max(date))%>%
-  pull(deaths)
+# highest crime type for white in 2019
+highest_crime_type_for_white_in_2019 <- as.vector(Data_2019[which.max(Data_2019$White),1])
 
-# How many cases have occured in the U.S.? `total_cases`
-total_jail_population <- Incarceration %>%
-  filter(date ==max(date))%>%
-  pull(cases)
+summary <- t(data.frame(race_with_the_highest_crime_rate_in_2019,highest_crime_type_for_African_Americans_in_2013,highest_crime_type_for_African_Americans_in_2019,average_criminal_total,highest_crime_type_for_white_in_2013,highest_crime_type_for_white_in_2019))
+View(summary)
+
+# Table -------------------------------------------------------------------
+
+Data1 <- group_by(Arrest_Information, X2013)
+
+Table <- summarise(Data1, total_arrest = max(Total), 
+                   black_arrest = max(Black.or.African.American), white_arrests = max(White),
+                   American_Indian_or_Alaska_Native_arrest = max(American.Indian.or.Alaska.Native),
+                   asian_arrests = max(Asian), Native_Hawaiian_or_Other_Pacific_Islander_arrest = max(Native.Hawaiian.or.Other.Pacific.Islander))
+View(Table)
 
 
-# Plot1  ------------------------------------------------------------------
-# Load Data
-# Data division by year
-Data_2013_all <- filter(Data, X2013=="2013")
-Data_2015_all <- filter(Data, X2013=="2015")
-Data_2017_all <- filter(Data, X2013=="2017")
-Data_2019_all <- filter(Data, X2013=="2019")
+# 1st chart ----------------------------
 
-Total_Arrest<- c(Data_2013_all$Total[A1],Data_2015_all$Total[1],Data_2017_all$Total[1],Data_2019_all$Total[1])
+Data_2013_all <- filter(Arrest_Information, X2013=="2013")
+Data_2015_all <- filter(Arrest_Information, X2013=="2015")
+Data_2017_all <- filter(Arrest_Information, X2013=="2017")
+Data_2019_all <- filter(Arrest_Information, X2013=="2019")
+
+Total_Arrest<- c(Data_2013_all$Total[1],Data_2015_all$Total[1],Data_2017_all$Total[1],Data_2019_all$Total[1])
 Year <- c("arrest_2013","arrest_2015","arrest_2017","arrest_2019")
 
 Plot<- data.frame(Year, Total_Arrest)
 ggplot(Plot, aes(x=Year, y=Total_Arrest,group=1)) + geom_line(linetype = "dashed",color = "red")+geom_point()+
   ggtitle("Arrests per Year")+ theme(plot.title = element_text(hjust = 0.5))
-# Plot2  ------------------------------------------------------------------
+
+# 2nd chart -------------------------------
+# Data division by year
 
 Plot_2019 <- Data_2019_all[-c(1),c(1,2)]
-ggplot(Plot_2019, aes(x=Crime...Total.Arrest, y=Total)) + geom_bar(stat="identity")+
+ggplot(Plot_2019, aes(x=ï..Crime...Total.Arrest, y=Total)) + geom_bar(stat="identity")+
   ggtitle("Arrests in 2019")+ theme(plot.title = element_text(hjust = 0.5))+ theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
   xlab("Crimes") + ylab("Total Arrest")
 
+# 3rd Chart ---------------------------------------------------------------------
 
-# Plot3  ------------------------------------------------------------------
+Asian_Population_comparison <- c(Arrest_Information$Asian[1],Arrest_Information$Asian[1],Arrest_Information$Asian[1],Arrest_Information$Asian[1])
+Pacific_Islander_Population_comparison <- c(Arrest_Information$Native.Hawaiian.or.Other.Pacific.Islander[1],Arrest_Information$Native.Hawaiian.or.Other.Pacific.Islander[1],Arrest_Information$Native.Hawaiian.or.Other.Pacific.Islander[1],Arrest_Information$Native.Hawaiian.or.Other.Pacific.Islander[1])
+                   
+plot(Asian_Population_comparison, type="o", col="blue", ylim=c(100, 1000))
 
-Total_Arrest<- c(Data_2013_all$Total[1],Data_2015_all$Total[1],Data_2017_all$Total[1],Data_2019_all$Total[1])
-Year <- c("2013","2015","2017","2019")
-Total_Arrest<- data.frame(Year, Total_Arrest)
-# Data division for max crime type
-Data_2013 <- Data_2013_all[-c(1,29),]
-Data_2015 <- Data_2015_all[-c(1,29),]
-Data_2017 <- Data_2017_all[-c(1,29),]
-Data_2019 <- Data_2019_all[-c(1,29),]
+lines(Pacific_Islander_Population_comparison, type="o", pch=22, lty=2, col="red")
 
-max_crime_arrest_type_2013 <- as.vector(Data_2013[which.max(Data_2013$Total),c(1,2)])
-max_crime_arrest_type_2015 <- as.vector(Data_2015[which.max(Data_2015$Total),c(1,2)])
-max_crime_arrest_type_2017 <- as.vector(Data_2017[which.max(Data_2017$Total),c(1,2)])
-max_crime_arrest_type_2019 <- as.vector(Data_2019[which.max(Data_2019$Total),c(1,2)])
-
-max_crime_type<- rbind(max_crime_arrest_type_2013,max_crime_arrest_type_2015,max_crime_arrest_type_2017,max_crime_arrest_type_2019)
-colnames(max_crime_type)[2]= "Max_crime_type_arrest"
-
-Final_Plot_Data <- cbind(Total_Arrest,max_crime_type)
-Final_Plot_Data <- Final_Plot_Data[,-c(3)]
-
-Final_Plot_Data1<- melt(Final_Plot_Data, id.vars='Year')
-
-ggplot(Final_Plot_Data1, aes(x=Year, y=value, fill=variable)) +
-  geom_bar(stat='identity', position='dodge') + ylab("No. of Arrests")+
-  ggtitle("Comparison of total arrest and\n max crime type arrest")+ theme(plot.title = element_text(hjust = 0.5))+ labs(fill = "Legend")
-
-
-# Plot of Total Population Incarceration Trend ----------------------------
-plot1 <- ggplot() + 
-  geom_line(aes(y = Total, x =  X2013),
-            data = Arrest_Information) 
-scale_x_continuous(breaks=seq(2011,2021,2))
-theme(text=element_text(family="Tahoma"))
-
-
-plot1 + labs(title = "Mass Incarceration", x = "Years", y = "Total Number of Arrests:" , caption = "By: Abdirahim M. ")
-
-
-
-
-
-
+title(main="Comparison Graph", col.main="red", font.main=4)
