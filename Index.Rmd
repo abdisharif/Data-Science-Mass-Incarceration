@@ -1,40 +1,36 @@
 ---
 title: "Mass Incarceration"
-author: "Matthew Schrier"
+author: "Abdirahim M, Matthew S, Confidence, Aminata"
 date: "2/19/2021"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+source("compile.r")
+library(knitr)
+library(kableExtra)
 ```
 
-## adding some new information into the file 
-## R Markdown
+## Introduction:
 
-Introductory Paragraph
-
-Mass incarceration is an astronomical problem in the United States. The U.S. leads with the highest incarceration rate of any country in the world. Not really something that should be celebrated. Research has shown that it is mainly African-Americans that inhabit these prisons/jails. Is there a societal problem? Can we expose this great injustice to the individuals that, one could say, built this country? Let’s find out!  
-
-Why Table was Included
-
-This table was included to show the total arrests categorized by race. It also shows a steady decline of arrests over the years. It should also be taken into consideration that though the total amount of White arrests are higher than Black arrests there are far more Whites in the U.S. than Blacks. Therefore, it is appalling that the total number of arrests of Blacks should even come close to the total number of arrests for Whites considering there is around 13% of Blacks in the U.S. compared to around 60% of Whites.  
+*Mass incarceration is an astronomical problem in the United States. The U.S. leads with the highest incarceration rate of any country in the world. Not really something that should be celebrated. Research has shown that it is mainly African-Americans that inhabit these prisons/jails. Is there a societal problem? Can we expose this great injustice to the individuals that, one could say, built this country? Let’s find out!*
 
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+*Here are our FIVE variables/ Summary:*
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+-  According to the data set the race with the highest crime rate in the United States is *`r race_with_the_highest_crime_rate_in_2019`*. Which wasn't surprising to us because the sheer difference of population size between white people and every other race in the United States. We also found out that the crime that was done the most frequently by white people in 2019 was `r highest_crime_type_for_white_in_2019`. This was surprising seeing that in 2013, the crime that was most frequently done by white people was *`r highest_crime_type_for_white_in_2013`*. After some more calculations, We learned that the crimes that  African Americans were mostly arrested for in 2013 was *`r highest_crime_type_for_African_Americans_in_2013`*, which made it even less surprising when we found out that crimes African Americans were arrested for six years later was *`r highest_crime_type_for_African_Americans_in_2019`* because it was very stereotypical. Looking at our data from the years 2013, 2015, 2017, and 2019 we found our that the average number of arrests was *`r average_criminal_total`* throughout the United States.
 
-```{r cars}
-summary(cars)
+
+
+
+
+# Table:
+
+```{r echo=FALSE}
+kable(Table)
 ```
 
-## Including Plots
+# Plots
 
-You can also embed plots, for example:
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
