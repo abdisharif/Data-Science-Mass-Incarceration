@@ -3,7 +3,7 @@ install.packages("dplyr")
 library(dplyr)
 
 ## Load Data
-Data <- read.csv("/Users/matthewschrier/Desktop/INFO_201/https-classroom.github.com-a-XrLzm1Hu/Arrest_Information.csv")
+Data <- read.csv("https://raw.githubusercontent.com/mschrier/https-classroom.github.com-a-XrLzm1Hu/main/Arrest_Information.csv")
 View(Data)
 
 # Data division by year
