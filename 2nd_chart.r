@@ -1,6 +1,8 @@
 install.packages("ggplot2")
 library(ggplot2)
 library(dplyr)
+lint("2nd_chart.r")
+
 ## Load Data
 Data <- read.csv("https://raw.githubusercontent.com/mschrier/https-classroom.github.com-a-XrLzm1Hu/main/Arrest_Information.csv")
 
