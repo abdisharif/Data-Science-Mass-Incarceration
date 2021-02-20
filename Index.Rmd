@@ -14,7 +14,12 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Introductory Paragraph
 
-Mass incarceration is an astronomical problem in the United States. The U.S. leads with the highest incarceration rate of any country in the world. Not really something that should be celebrated. Research has shown that it is mainly African-Americans that inhabit these prisons/jails. Is there a societal problem? Can we expose this great injustice to the individuals that, one could say, built this country? Let’s find out!    
+Mass incarceration is an astronomical problem in the United States. The U.S. leads with the highest incarceration rate of any country in the world. Not really something that should be celebrated. Research has shown that it is mainly African-Americans that inhabit these prisons/jails. Is there a societal problem? Can we expose this great injustice to the individuals that, one could say, built this country? Let’s find out!  
+
+Why Table was Included
+
+This table was included to show the total arrests categorized by race. It also shows a steady decline of arrests over the years. It should also be taken into consideration that though the total amount of White arrests are higher than Black arrests there are far more Whites in the U.S. than Blacks. Therefore, it is appalling that the total number of arrests of Blacks should even come close to the total number of arrests for Whites considering there is around 13% of Blacks in the U.S. compared to around 60% of Whites.  
+
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
