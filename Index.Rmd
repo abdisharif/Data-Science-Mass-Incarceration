@@ -7,7 +7,16 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
+library(dplyr)
+
+source("summary.r")
+source("table.R")
 ```
+
+summary.R
+View(summary)
+View(table)
 
 ## adding some new information into the file 
 ## R Markdown

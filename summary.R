@@ -37,5 +37,4 @@ highest_crime_type_for_white_in_2019 <- as.vector(Data_2019[which.max(Data_2019$
 
 summary <- t(data.frame(race_with_the_highest_crime_rate_in_2019,highest_crime_type_for_African_Americans_in_2013,highest_crime_type_for_African_Americans_in_2019,average_criminal_total,highest_crime_type_for_white_in_2013,highest_crime_type_for_white_in_2019))
 View(summary)
-#highest crime type for white in 2015
-highest_crime_type_for_white_in_2015 <- as.vector(data_2015[data_2015[which.max(Data_2015$White),1])
+
