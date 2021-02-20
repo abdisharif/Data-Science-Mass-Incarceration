@@ -9,7 +9,7 @@ output: html_document
 source("analysis.r")
 library(knitr)
 library(kableExtra)
-lint("table.R")
+lint("index.Rmd")
 ```
 
 ## Introduction:
