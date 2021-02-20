@@ -4,6 +4,8 @@ install.packages("reshape2")
 library(reshape2)
 library(ggplot2)
 library(dplyr)
+lint("3rd_chart.R")
+
 ## Load Data
 Data <- read.csv("https://raw.githubusercontent.com/mschrier/https-classroom.github.com-a-XrLzm1Hu/main/Arrest_Information.csv")
 
