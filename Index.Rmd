@@ -9,6 +9,7 @@ output: html_document
 source("compile.r")
 library(knitr)
 library(kableExtra)
+lint("table.R")
 ```
 
 ## Introduction:
