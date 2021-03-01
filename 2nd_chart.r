@@ -14,7 +14,7 @@ data_2019_all <- filter(data, X2013 == "2019")
 
 plot_2019 <- data_2019_all[-c(1), c(1, 2)]
 summary(plot_2019)
-ggplot(plot_2019, aes(x = ï..Crime...Total.Arrest, y = Total)) + geom_bar(
+ggplot(plot_2019, aes(x = Crime...Total.Arrest , y = Total)) + geom_bar(
   stat = "identity") + ggtitle("Arrests in 2019") + theme(
     plot.title = element_text(hjust = 0.5)) + theme(
       axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) + xlab(

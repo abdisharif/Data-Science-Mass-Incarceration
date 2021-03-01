@@ -1,4 +1,3 @@
----
 title: "Mass Incarceration"
 author: "Abdirahim M, Matthew S, Confidence O, Aminata D"
 date: "2/19/2021"
@@ -38,14 +37,11 @@ Data_2013_all <- filter(Arrest_Information, X2013=="2013")
 Data_2015_all <- filter(Arrest_Information, X2013=="2015")
 Data_2017_all <- filter(Arrest_Information, X2013=="2017")
 Data_2019_all <- filter(Arrest_Information, X2013=="2019")
-
 Total_Arrest<- c(Data_2013_all$Total[1],Data_2015_all$Total[1],Data_2017_all$Total[1],Data_2019_all$Total[1])
 Year <- c("arrest_2013","arrest_2015","arrest_2017","arrest_2019")
-
 Plot<- data.frame(Year, Total_Arrest)
 ggplot(Plot, aes(x=Year, y=Total_Arrest,group=1)) + geom_line(linetype = "dashed",color = "red")+geom_point()+
   ggtitle("Arrests per Year")+ theme(plot.title = element_text(hjust = 0.5))
-
 ```
 
 - Description: The purpose of the first chart is to show that arrests have been declining from 2013 to 2019. We can see that in 2013,2015,2017, and 2019 there was a decline in every year. I think that this is good news. There has been a lot more awareness around Mass incarceration and this has helped to reduce arrests arrests. ALso, some laws concerning drugs have been changed to help reduce the total number of arrests. 
@@ -53,12 +49,10 @@ ggplot(Plot, aes(x=Year, y=Total_Arrest,group=1)) + geom_line(linetype = "dashed
 
 
 ```{r include=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.height=5, fig.width=10}
-
 Plot_2019 <- Data_2019_all[-c(1),c(1,2)]
 ggplot(Plot_2019, aes(x=ï..Crime...Total.Arrest, y=Total)) + geom_bar(stat="identity")+
   ggtitle("Arrests in 2019")+ theme(plot.title = element_text(hjust = 0.5))+ theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
   xlab("Crimes") + ylab("Total Arrest")
-
 ```
 
 - Description: The purpose of the second chart is to show all the different crimes people are arrested for. This chart allows us to quickly see the crimes that are causing the most arrests. For instance, one observation that drug abuse violations, other assaults,property crime, along with a category titled all other offense, which we could not find more information on were the crimes that had the most arrests.  
@@ -66,18 +60,11 @@ ggplot(Plot_2019, aes(x=ï..Crime...Total.Arrest, y=Total)) + geom_bar(stat="ide
 
 
 ```{r include=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.height=5, fig.width=10}
-
 Data_2019_all <- filter(Arrest_Information, X2013=="2019")
-
 Total_Arrest<- c(Data_2019_all$White[1],Data_2019_all$Black.or.African.American[1],Data_2019_all$Asian[1],
                  Data_2019_all$American.Indian.or.Alaska.Native[1],Data_2019_all$Native.Hawaiian.or.Other.Pacific.Islander[1])
-
 pie(Total_Arrest, main = "Arrest_2019",labels=c("White_arrest","Black_arrest","Asian_arrest","America_Indian_Alaska_Native_Arrest",
                                                 "Native_Hawaiian_or_Other_Pacific_Islander_arrest"), radius = 1)
-
-
-
-
 ```
 
 - Description: The purpose of this third chart is to show the decrease in Black Arrests in the United States, and the reason we chose this value is to show that we might be moving in the right direction in terms of fighting mass incarceration. 

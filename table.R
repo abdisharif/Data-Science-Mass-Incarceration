@@ -17,10 +17,10 @@ table <-
             asian_arrests = max(Asian),
             Native_Hawaiian_or_Other_Pacific_Islander_arrest =
               max(Native.Hawaiian.or.Other.Pacific.Islander))
-colnames(table)[1] <- "total arrest"
-colnames(table)[2] <- "black arrest"
-colnames(table)[3] <- "white arrest"
-colnames(table)[4] <- "american indian or alaska native arrest"
-colnames(table)[5] <- "asian arrests"
+colnames(table)[2] <- "total arrest"
+colnames(table)[3] <- "black arrest"
+colnames(table)[4] <- "white arrest"
+colnames(table)[5] <- "american indian or alaska native arrest"
+colnames(table)[6] <- "asian arrests"
 colnames(table)[7] <- "native hawaiian or other pacific islander arrest"
 View(table)
