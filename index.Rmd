@@ -1,0 +1,89 @@
+---
+title: "Mass Incarceration"
+author: "Matthew Schrier, Abdirahim M, Confedence, Aminata" 
+date: "2/19/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(rmarkdown)
+library(knitr)
+library(dplyr)
+library(ggplot2)
+source("analysis.r", echo = T, prompt.echo = "", spaced = F)
+lint("index.Rmd")
+```
+
+## Introduction:
+
+*Mass incarceration is an astronomical problem in the United States. The U.S. leads with the highest incarceration rate of any country in the world. Not really something that should be celebrated. Research has shown that it is mainly African-Americans that inhabit these prisons/jails. Is there a societal problem? Can we expose this great injustice to the individuals that, one could say, built this country? Lets find out!*
+
+# Summary:
+
+```{r echo=FALSE}
+print(paste0("According to the data set the race with the highest crime rate in the United States is ", highest_race_crime_rate_2019, " Which wasn't surprising to us because the sheer difference of population size between white people and every other race in the United States. We also found out that the crime that was done the most frequently by white people in 2019 was ", highest_crime_type_white_2019, ". This was surprising seeing that in 2013, the crime that was most frequently done by white people was ", highest_crime_type_white_2013, ". After some more calculations, We learned that the crimes that  African Americans were mostly arrested for in 2013 was ", highest_crime_afri_amer_2013, " which made it even less surprising when we found out that crimes African Americans were arrested for six years later was ", highest_crime_afri_amer_2019, " because it was very stereotypical. Looking at our data from the years 2013, 2015, 2017, and 2019 we found our that the average number of arrests was ", average_criminal_total, " throughout the United States."))
+```
+
+
+
+
+# Table:
+
+```{r echo=FALSE}
+kable(table[1:4, ], caption = "Arrest Info")
+```
+
+# Charts:
+
+```{r include=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.height=5, fig.width=10}
+data_2013_all <- filter(arrest_information, X2013 == "2013")
+data_2015_all <- filter(arrest_information, X2013 == "2015")
+data_2017_all <- filter(arrest_information, X2013 == "2017")
+data_2019_all <- filter(arrest_information, X2013 == "2019")
+
+total_arrest <- c(data_2013_all$Total[1], data_2015_all$Total[1],
+                 data_2017_all$Total[1], data_2019_all$Total[1])
+year <- c("arrest 2013", "arrest 2015", "arrest 2017", "arrest 2019")
+
+plot <- data.frame(year, total_arrest)
+ggplot(plot, aes(x = year, y = total_arrest, group = 1)) +  geom_line(
+  linetype = "dashed", color = "red") + geom_point() +  ggtitle(
+    "Arrests per Year") + theme(plot.title = element_text(
+      hjust = 0.5)) +  ylab("total arrest")
+```
+
+- Description: The purpose of the first chart is to show that arrests have been declining from 2013 to 2019. We can see that in 2013,2015,2017, and 2019 there was a decline in every year. I think that this is good news. There has been a lot more awareness around Mass incarceration and this has helped to reduce arrests arrests. ALso, some laws concerning drugs have been changed to help reduce the total number of arrests. 
+
+
+
+```{r include=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.height=5, fig.width=10}
+plot_2019 <- data_2019_all[-c(1), c(1, 2)]
+colnames(plot_2019)[1] <- "total_arrest"
+summary(plot_2019)
+ggplot(plot_2019, aes(x = total_arrest, y = Total)) + geom_bar(
+  stat = "identity") + ggtitle("Arrests in 2019") + theme(
+    plot.title = element_text(hjust = 0.5)) + theme(
+      axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) + xlab(
+        "Crimes") + ylab("Total Arrest")
+```
+
+- Description: The purpose of the second chart is to show all the different crimes people are arrested for. This chart allows us to quickly see the crimes that are causing the most arrests. For instance, one observation that drug abuse violations, other assaults,property crime, along with a category titled all other offense, which we could not find more information on were the crimes that had the most arrests.  
+
+
+
+```{r include=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.height=5, fig.width=10}
+
+total_arrest <- c(data_2019_all$White[1],
+                 data_2019_all$Black.or.African.American[1],
+                 data_2019_all$Asian[1],
+                 data_2019_all$American.Indian.or.Alaska.Native[1],
+                 data_2019_all$Native.Hawaiian.or.Other.Pacific.Islander[1])
+
+pie(total_arrest, main = "Arrest 2019",
+    labels = c("White", "Black",
+    "Asian", "America Indian Alaska Native",
+     "Native Hawaiian or Other Pacific Islander"), radius = 0.8,
+    cex = 0.7)
+```
+
+- Description: The purpose of this third chart is to show the decrease in Black Arrests in the United States, and the reason we chose this value is to show that we might be moving in the right direction in terms of fighting mass incarceration. 
