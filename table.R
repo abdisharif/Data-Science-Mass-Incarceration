@@ -1,7 +1,12 @@
 ## Install Package
 library(dplyr)
+<<<<<<< HEAD
 library(lintr)
 lint("table.R")
+=======
+lint("table.R")
+
+>>>>>>> 46d8ed2bbc0f8df6ee71d959eca9437e0b080a7e
 ## Load Data
 data <- read.csv("https://raw.githubusercontent.com/mschrier/https-classroom.github.com-a-XrLzm1Hu/main/Arrest_Information.csv")
 View(data)

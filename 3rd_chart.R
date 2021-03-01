@@ -2,8 +2,13 @@
 library(reshape2)
 library(ggplot2)
 library(dplyr)
+<<<<<<< HEAD
 library(lintr)
 lint("3rd_chart.R")
+=======
+lint("3rd_chart.R")
+
+>>>>>>> 46d8ed2bbc0f8df6ee71d959eca9437e0b080a7e
 ## Load Data
 data <-
   read.csv("https://raw.githubusercontent.com/mschrier/https-classroom.github.com-a-XrLzm1Hu/main/Arrest_Information.csv")

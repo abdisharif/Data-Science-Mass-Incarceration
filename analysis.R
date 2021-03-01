@@ -3,6 +3,7 @@ library("dplyr")
 library("tidyverse")
 library("ggplot2")
 lint("analysis.R")
+<<<<<<< HEAD
 arrest_information <-
   read.csv("https://raw.githubusercontent.com/mschrier/https-classroom.github.com-a-XrLzm1Hu/main/Arrest_Information.csv")
 view(arrest_information)
@@ -23,6 +24,23 @@ highest_race_crime_rate_2019 <-
     max.col(highest_race_crime_rate_2019, ties.method = "first")]
 highest_race_crime_rate_2019 <-
   highest_race_crime_rate_2019[1]
+=======
+
+Arrest_Information <- read.csv("https://raw.githubusercontent.com/mschrier/https-classroom.github.com-a-XrLzm1Hu/main/Arrest_Information.csv")
+view(Arrest_Information)
+
+# summary -----------------------------------------------------------
+Data_2013_all <- filter(Arrest_Information, X2013=="2013")
+Data_2015_all <- filter(Arrest_Information, X2013=="2015")
+Data_2017_all <- filter(Arrest_Information, X2013=="2017")
+Data_2019_all <- filter(Arrest_Information, X2013=="2019")
+summary(Data_2013_all)
+
+# race_with_the_highest_crime_rate_in_2019
+race_with_the_highest_crime_rate_in_2019 <- select(Data_2019_all, White,Black.or.African.American,American.Indian.or.Alaska.Native,Asian,Native.Hawaiian.or.Other.Pacific.Islander)
+race_with_the_highest_crime_rate_in_2019 <- colnames(race_with_the_highest_crime_rate_in_2019)[max.col(race_with_the_highest_crime_rate_in_2019,ties.method="first")]
+race_with_the_highest_crime_rate_in_2019 <- race_with_the_highest_crime_rate_in_2019[1]
+>>>>>>> 46d8ed2bbc0f8df6ee71d959eca9437e0b080a7e
 
 # highest crime type for African Americans in 2013
 data_2013 <- data_2013_all[-c(1, 29), ]
