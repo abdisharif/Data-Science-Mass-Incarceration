@@ -57,7 +57,16 @@ ggplot(plot, aes(x = year, y = total_arrest, group = 1)) +  geom_line(
 
 
 
-
+```{r include=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.height=5, fig.width=10}
+plot_2019 <- data_2019_all[-c(1), c(1, 2)]
+colnames(plot_2019)[1] <- "total_arrest"
+summary(plot_2019)
+ggplot(plot_2019, aes(x = total_arrest, y = Total)) + geom_bar(
+  stat = "identity") + ggtitle("Arrests in 2019") + theme(
+    plot.title = element_text(hjust = 0.5)) + theme(
+      axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) + xlab(
+        "Crimes") + ylab("Total Arrest")
+```
 
 - Description: The purpose of the second chart is to show all the different crimes people are arrested for. This chart allows us to quickly see the crimes that are causing the most arrests. For instance, one observation that drug abuse violations, other assaults,property crime, along with a category titled all other offense, which we could not find more information on were the crimes that had the most arrests.  
 
