@@ -1,0 +1,12 @@
+name: Final
+title: Final
+username:
+account: abdisharif
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3771827
+bundleId: 4328828
+url: https://abdisharif.shinyapps.io/Final/
+when: 1615432082.35659
+asMultiple: FALSE
+asStatic: FALSE
