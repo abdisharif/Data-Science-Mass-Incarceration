@@ -1,4 +1,4 @@
-<h1>Project Proposal<h1>
+<h1>Analyzing Mass Incarceration<h1>
 
 
 <h3>Domain of interest</h3>
